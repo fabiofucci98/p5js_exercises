@@ -1,18 +1,23 @@
 import React from 'react';
 import p5 from 'p5';
+import SelectComponent from './components/SelectComponent';
 import Circles from './sketches/circles';
+import RandomWalker from './sketches/randomWalker';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
+
+    // Define your available sketches
     this.sketches = {
       Circles,
-      None: null, 
+      RandomWalker,
+      None: null, // Placeholder for "None" option
     };
 
     this.state = {
-      selectedSketch: 'None', 
+      selectedSketch: 'None', // Default selected sketch
     };
   }
 
@@ -25,6 +30,7 @@ class App extends React.Component {
       this.myP5.remove();
     }
 
+    // Get the corresponding sketch from the sketches object
     const Sketch = this.sketches[selectedSketch];
 
     if (Sketch) {
@@ -42,13 +48,11 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <select onChange={this.handleSelectChange} value={this.state.selectedSketch}>
-          {Object.keys(this.sketches).map((sketchName) => (
-            <option key={sketchName} value={sketchName}>
-              {sketchName}
-            </option>
-          ))}
-        </select>
+        <SelectComponent
+          selectedSketch={this.state.selectedSketch}
+          onSketchChange={this.handleSelectChange}
+          sketches={this.sketches}
+        />
         <div ref={this.myRef}></div>
       </>
     );
