@@ -13,9 +13,22 @@ class Walker{
 
     step(){
         const p = this.p;
-        this.x += p.floor(p.random(3))-1;
-        this.y += p.floor(p.random(3))-1;
+        if(p.random(1)<0.05){
+            if(p.mouseX>this.x) this.x++;
+            if(p.mouseX<this.x) this.x--;
+            if(p.mouseY>this.y) this.y++;
+            if(p.mouseY<this.y) this.y--;
+        
+        }
+        else{
+            this.x += p.random(-1,1);
+            this.y += p.random(-1,1);
+        }
+
+      
+    
     }
+
     
 }
 
@@ -23,7 +36,7 @@ class Walker{
 const RandomWalker = (p)=>{
     let walker;
     p.setup = ()=>{
-        p.createCanvas(640,240);
+        p.createCanvas(1000,1000);
         walker = new Walker(p);
     }
 

@@ -1,5 +1,8 @@
 const Circles = (p) => {
 
+    p.text = "test text";
+    p.versions = ['red','blue'];
+
     p.setup = () => {
         p.createCanvas(400, 400);
     }
