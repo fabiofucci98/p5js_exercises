@@ -1,8 +1,7 @@
-const Circles = (p) => {
+import Sketch from "../Sketch";
 
-    p.text = "test text";
-    p.versions = ['red','blue'];
-
+const text = "aaa";
+const sketch = (p) =>{
     p.setup = () => {
         p.createCanvas(400, 400);
     }
@@ -15,6 +14,12 @@ const Circles = (p) => {
         }
         p.ellipse(p.mouseX, p.mouseY, 80, 80);
     }
-}
+};
+
+const Circles = new Sketch(sketch,text);
+
+
 
 export default Circles
+
+

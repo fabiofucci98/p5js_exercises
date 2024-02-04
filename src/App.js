@@ -4,7 +4,7 @@ import sketches from './sketchesMap';
 import SketchComponent from './components/SketchComponent';
 
 const App = () => {
-  const [selectedSketch, setSelectedSketch] = useState('Circles');
+  const [selectedSketch, setSelectedSketch] = useState('None');
 
   const handleSelectChange = (e) => {
     const selectedSketch = e.target.value;
@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <>
-      <SelectComponent selectedSketch={selectedSketch} onSketchChange={handleSelectChange} sketches={sketches} />
+      <SelectComponent  selectedSketch={selectedSketch} onSketchChange={handleSelectChange} sketches={sketches} />
       <SketchComponent selectedSketch={sketches[selectedSketch]} />
     </>
   );

@@ -1,4 +1,6 @@
-const RandomDistribution = (p) => {
+import Sketch from "../Sketch";
+
+const sketch = (p) => {
     
     const total = 20;
     const randomCounts = Array.from({length: total},()=>0);
@@ -25,8 +27,10 @@ const RandomDistribution = (p) => {
 
 
     }
-
-
 }
+
+const text = "Example of a random distribution";
+
+const RandomDistribution = new Sketch(sketch,text);
 
 export default RandomDistribution

@@ -1,9 +1,10 @@
+import Sketch from "../Sketch";
+
 class Walker{
     constructor(p){
         this.p = p;
         this.x = p.width/2;
         this.y = p.height/2;
-        console.log(this.x,this.y)
     }
     show(){
         const p = this.p;
@@ -25,15 +26,12 @@ class Walker{
             this.y += p.random(-1,1);
         }
 
-      
-    
+        
+        
     }
-
-    
 }
 
-
-const RandomWalker = (p)=>{
+const sketch = (p)=>{
     let walker;
     p.setup = ()=>{
         p.createCanvas(1000,1000);
@@ -45,5 +43,11 @@ const RandomWalker = (p)=>{
         walker.step();
     }
 };
+
+const text = "Random walker with a 5% probability of moving towards the mouse"
+const RandomWalker = new Sketch(sketch,text);
+    
+
+
 
 export default RandomWalker;
