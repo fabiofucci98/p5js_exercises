@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
-import SelectComponent from './components/SelectComponent';
-import sketches from './sketchesMap';
-import SketchComponent from './components/SketchComponent';
-
-const App = () => {
-  const [selectedSketch, setSelectedSketch] = useState('None');
-
-  const handleSelectChange = (e) => {
-    const selectedSketch = e.target.value;
-    setSelectedSketch(selectedSketch);
-  };
+const SelectComponent = ({ selectedSketch = "", onSketchChange, sketches = {} }) => {
+  const sketchNames = Object.keys(sketches);
 
   return (
-    <>
-      <SelectComponent  selectedSketch={selectedSketch} onSketchChange={handleSelectChange} sketches={sketches} />
-      <SketchComponent selectedSketch={sketches[selectedSketch]} />
-    </>
+    <select
+      className="w-full px-4 py-3 text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-colors cursor-pointer"
+      onChange={onSketchChange}
+      value={selectedSketch}
+    >
+      {sketchNames.map((name) => (
+        <option key={name} value={name} className="bg-white text-gray-800">
+          {name}
+        </option>
+      ))}
+    </select>
   );
 };
 
-export default App;
+export default SelectComponent;

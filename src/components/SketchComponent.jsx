@@ -1,25 +1,24 @@
-import { useEffect, useRef } from 'react';
-import p5 from 'p5';
-
+import { useEffect, useRef } from "react";
+import p5 from "p5";
 
 const SketchComponent = ({ selectedSketch }) => {
-  const myRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const myP5 = new p5(selectedSketch?.sketch, myRef.current);
+    if (!selectedSketch?.sketch) return;
+
+    const sketchInstance = new p5(selectedSketch.sketch, containerRef.current);
+
     return () => {
-      myP5.remove();
+      sketchInstance.remove();
     };
   }, [selectedSketch]);
 
-  let text = '';
-  if(selectedSketch && selectedSketch.text) text = selectedSketch.text;
   return (
     <>
-      <div ref={myRef}></div>
-      <p>{text}</p>
+      <div ref={containerRef}></div>
+      {selectedSketch?.text && <p>{selectedSketch.text}</p>}
     </>
-
   );
 };
 

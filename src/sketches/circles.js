@@ -1,6 +1,6 @@
 import Sketch from "../Sketch";
 
-const text = "aaa";
+const text = "Some Circles";
 const sketch = (p) =>{
     p.setup = () => {
         p.createCanvas(400, 400);
