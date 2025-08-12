@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/https://github.com/fabiofucci98/p5js_exercises/',
+  base: '/p5js_exercises/',
 })
