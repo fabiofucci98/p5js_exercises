@@ -4,7 +4,7 @@ import sketches from './sketchesMap';
 import SketchComponent from './components/SketchComponent';
 
 const App = () => {
-  const [selectedSketch, setSelectedSketch] = useState('None');
+  const [selectedSketch, setSelectedSketch] = useState('Cats');
 
   const handleSelectChange = (e) => {
     const selectedSketch = e.target.value;
